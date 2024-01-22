@@ -1,18 +1,18 @@
-const button = document.getElementById('_audio_brn_');
+const audioBtn  = document.getElementById('audioBtn');
 let audio = document.querySelector('#background-audio');
 
 const allSongs = [
     {
         id: 0,
-        src: './audio/audio1.mp3',
+        src: 'audio/audio1.mp3',
     },
     {
         id: 1,
-        src: './audio/audio2.mp3',
+        src: 'audio/audio2.mp3',
     },
     {
         id: 2,
-        src: './audio/audio3.mp3',
+        src: 'audio/audio3.mp3',
     },
 ];
 
@@ -24,14 +24,18 @@ let songs = {
     volume: 0.3,
 };
 
-button.addEventListener('click', () => {
+audioBtn.addEventListener('click', () => {
+    console.log('clicked')
     if (songs.currentIndex >= 2) {
         songs.currentIndex = 0;
     } else {
         songs.currentIndex += 1;
     }
     audio.src = allSongs[songs.currentIndex].src;
-    audio.play()
+    audio.loop = songs.loop;
+    audio.autoplay = songs.autoplay
+    audio.volume = songs.volume;
+    audio.play();
 })
 
 const playSong = () => {
@@ -39,8 +43,9 @@ const playSong = () => {
     audio.autoplay = songs.autoplay
     audio.volume = songs.volume;
     audio.play().catch(e => {
-        button.click();
+        audioBtn.click();
     });
+    audioBtn.click();
 }
 // button.click();
 window.onload = () => playSong();
