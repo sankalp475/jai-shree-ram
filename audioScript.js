@@ -44,7 +44,7 @@ const playSong = () => {
     // audio.play();
     audioBtn.click();
 }
-// audioBtn.click();
+audioBtn.click();
 window.onload = () => playSong();
 
 
