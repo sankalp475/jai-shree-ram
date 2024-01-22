@@ -34,17 +34,24 @@ audioBtn.addEventListener('click', () => {
     let src = allSongs[songs.currentIndex].src;
     console.log(src);
     audio.src = src;
+    audio.loop = songs.loop;
+    audio.autoplay = songs.autoplay
+    audio.volume = songs.volume;
     audio.play();
 })
 
 const playSong = () => {
-    audio.loop = songs.loop;
-    audio.autoplay = songs.autoplay
-    audio.volume = songs.volume;
-    // audio.play();
-    audioBtn.click();
+    let audioElm = new Audio('audio/audio2.mp3');
+    audioElm.loop = songs.loop;
+    audioElm.autoplay = songs.autoplay
+    audioElm.volume = songs.volume;
+    audioElm.play();
 }
-audioBtn.click();
-window.onload = () => playSong();
+// audioBtn.click();
+window.onload = () => {
+    // setTimeout(()=>{
+        playSong();
+    // },1000)
+};
 
 
