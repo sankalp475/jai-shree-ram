@@ -1,84 +1,66 @@
-/*
-window.onload = function() {
-    var audio = document.getElementById("background-audio");
-    
-    if (audio.canPlayType("audio/mpeg") !== "") {
-        audio.src = "your-audio-file.mp3";
-    } else if (audio.canPlayType("audio/ogg") !== "") {
-        audio.src = "your-audio-file.ogg";
-    } else {
-        audio.innerHTML = "Your browser does not support the audio element.";
-    }
-    
-    audio.autoplay = true;
-    audio.loop = true;
+const button = document.getElementById('_audio_brn_');
+let audio =  new Audio('/audio/audio1.mp3');
+
+const audioSettngs = {
+    currentSrc: null,
+    loop: true,
+    autoplay: true,
+    volume: 0.1,
 };
-*/
+const allSongs = [
+    {
+        id: 0,
+        src: './audio/audio1.mp3',
+    },
+    {
+        id: 1,
+        src: './audio/audio2.mp3',
+    },
+    {
+        id: 2,
+        src: './audio/audio3.mp3',
+    },
+];
 
 
 
 
-// document.addEventListener('DOMContentLoaded', function () {
-//     var audio = document.getElementById('background-audio');
-//     if (audio) {
-//         audio.volume = 0.5; // Adjust the volume (0.0 to 1.0)
-//         audio.play();
-//     }
-// });
+// button.addEventListener('click', () => {
+//     // audio.src = './audio/audio2.mp3';
+//     // audio.loop = true;
+//     // audio.autoplay=true;
+//     // console.log(audio)
+//     // audio.play()
+// })
 
-// window.onload = function () {
-//     var audio = document.getElementById("background-audio");
-//     audio.src = "./audio/audio.mp3";
-//     audio.autoplay = true;
-//     audio.loop = true;
-// };
+const playSong = (id) => {
+    if (id == undefined) {
+        const e = new Error("ID argument is required");
+        throw e;
+    }
+    for (let i = 0; i < allSongs.length; i++) {
+        // console.log(allSongs[i]?.id == id )
+        if (allSongs[i]?.id == id) {
+            audioSettngs.currentSrc = allSongs[i].src;
+        }
+    }
 
-
-
-// console.log(playAudioFun(audio))
-
-// window.onload = function () {
-//     setTimeout(function () {
-
-
-//         audio.autoplay = true;
-//         audio.loop = true;
-//         audio.volume = 0.3;
-//         audio.play();
-
-//         // audio.addEventListener("canplaythrough", () => {
-//         //     audio.play().catch(e => {
-//         //         window.addEventListener('click', () => {
-//         //             audio.play()
-//         //         })
-//         //     })
-//         // });
-
-//     }, 1000); // 1000 milliseconds = 1 second
-// };
-
-let audioName = 'audio2';
-const changeBtn = document.querySelector("#_audio_brn_");
-let audio_url = `./audio/${audioName}.mp3`;
-changeBtn.addEventListener('click', () => {
-
-   console.log(Math.trunc(Math.random() * 3));   
-   audioName = `audio${Math.trunc(Math.random() * 3) + 1}`;
-   let audio_url = `./audio/${audioName}.mp3`;
-   console.log(audioName, audio_url);
-})
-
-let audio = new Audio(audio_url);
-const playAudioFun = (audioElement) => {
-    if (!(audioElement instanceof Object)) return
-    audioElement.autoplay = true;
-    audioElement.loop = true;
-    audioElement.volume = 0.3;
-    // audioElement.play();
-    // console.log(audio_url)
+    audio.src =  audioSettngs.currentSrc;
+    audio.loop = audioSettngs.loop;
+    audio.autoplay = audioSettngs.autoplay;
+    audio.volume = audioSettngs.volume;
+    setTimeout((e)=>{
+        audio.play().catch(e => {
+            console.log(e);
+            window.addEventListener("canplaythrough", (e) => {
+                audio.play();
+            })
+        });
+    },1000)
 }
-window.onload = function () {
-    setTimeout(function () {
-        playAudioFun(audio);
-    }, 1000)
-}
+// windows.addEventListener("canPlaythrough")
+window.addEventListener('load', (e) => {
+    playSong(1);
+});
+
+
