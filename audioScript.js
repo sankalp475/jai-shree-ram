@@ -4,15 +4,15 @@ let audio = document.querySelector('#background-audio');
 const allSongs = [
     {
         id: 0,
-        src: './audio/audio1.mp3',
+        src: 'audio/audio1.mp3',
     },
     {
         id: 1,
-        src: './audio/audio2.mp3',
+        src: 'audio/audio2.mp3',
     },
     {
         id: 2,
-        src: './audio/audio3.mp3',
+        src: 'audio/audio3.mp3',
     },
 ];
 
