@@ -31,15 +31,20 @@ button.addEventListener('click', () => {
         songs.currentIndex += 1;
     }
     audio.src = allSongs[songs.currentIndex].src;
-    audio.play();
+    audio.play()
 })
 
 const playSong = () => {
     audio.loop = songs.loop;
     audio.autoplay = songs.autoplay
     audio.volume = songs.volume;
-    audio.play();
+    // audio.addEventListener("canplaythrough", () => {
+        audio.play().catch(e => {
+            console.log(e)
+        });
+    // });
 }
+
 window.onload = () => playSong();
 
 
