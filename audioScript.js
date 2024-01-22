@@ -18,14 +18,13 @@ const allSongs = [
 
 let songs = {
     currentSong: null,
-    currentIndex: 0,
+    currentIndex: 1,
     loop: true,
     autoplay: true,
     volume: 0.3,
 };
 
 audioBtn.addEventListener('click', () => {
-    audioElm.pause();
     if (songs.currentIndex >= allSongs.length - 1) {
         songs.currentIndex = 0;
     } else {
@@ -43,13 +42,13 @@ audioBtn.addEventListener('click', () => {
 // let audioElm = new Audio('audio/audio2.mp3');
 const playSong = () => {
     // let audioElm = new Audio('audio/audio2.mp3');
-    audioElm.loop = songs.loop;
-    audioElm.autoplay = songs.autoplay
-    audioElm.volume = songs.volume;
-    audioBtn.click();
+    audio.loop = songs.loop;
+    audio.autoplay = songs.autoplay
+    audio.volume = songs.volume;
 }
 // audioBtn.click();
 window.onload = () => {
     playSong();
+    audioBtn.click();
 };
 
