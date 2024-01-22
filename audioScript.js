@@ -42,12 +42,12 @@ const playSong = () => {
     audio.loop = songs.loop;
     audio.autoplay = songs.autoplay
     audio.volume = songs.volume;
-    audio.play().catch(e => {
-        audioBtn.click();
-    });
+    // audio.play().catch(e => {
+    //     audioBtn.click();
+    // });
     audioBtn.click();
 }
-// button.click();
+audioBtn.click();
 window.onload = () => playSong();
 
 
