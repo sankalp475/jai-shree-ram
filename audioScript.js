@@ -40,15 +40,15 @@ audioBtn.addEventListener('click', () => {
 })
 
 // let audioElm = new Audio('audio/audio2.mp3');
-const playSong = () => {
-    // let audioElm = new Audio('audio/audio2.mp3');
-    audio.loop = songs.loop;
-    audio.autoplay = songs.autoplay
-    audio.volume = songs.volume;
-}
-// audioBtn.click();
-window.onload = () => {
-    playSong();
-    audioBtn.click();
-};
+// const playSong = () => {
+//     // let audioElm = new Audio('audio/audio2.mp3');
+//     audio.loop = songs.loop;
+//     audio.autoplay = songs.autoplay
+//     audio.volume = songs.volume;
+// }
+// // audioBtn.click();
+// window.onload = () => {
+//     playSong();
+//     audioBtn.click();
+// };
 
