@@ -1,6 +1,6 @@
 const audioBtn = document.getElementById('audioBtn');
 let audio = document.querySelector('#background-audio');
-
+audioBtn.click();
 const allSongs = [
     {
         id: 0,
