@@ -24,22 +24,6 @@ let songs = {
     volume: 0.3,
 };
 
-
-let audioElm = new Audio('audio/audio2.mp3');
-const playSong = () => {
-    // let audioElm = new Audio('audio/audio2.mp3');
-    audioElm.loop = songs.loop;
-    audioElm.autoplay = songs.autoplay
-    audioElm.volume = songs.volume;
-    audioElm.play();
-}
-// audioBtn.click();
-window.onload = () => {
-    // setTimeout(()=>{
-        playSong();
-    // },1000)
-};
-
 audioBtn.addEventListener('click', () => {
     audioElm.pause();
     if (songs.currentIndex >= allSongs.length - 1) {
@@ -55,3 +39,17 @@ audioBtn.addEventListener('click', () => {
     audio.volume = songs.volume;
     audio.play();
 })
+
+// let audioElm = new Audio('audio/audio2.mp3');
+const playSong = () => {
+    // let audioElm = new Audio('audio/audio2.mp3');
+    audioElm.loop = songs.loop;
+    audioElm.autoplay = songs.autoplay
+    audioElm.volume = songs.volume;
+    audioBtn.click();
+}
+// audioBtn.click();
+window.onload = () => {
+    playSong();
+};
+
