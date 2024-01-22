@@ -38,13 +38,11 @@ const playSong = () => {
     audio.loop = songs.loop;
     audio.autoplay = songs.autoplay
     audio.volume = songs.volume;
-    // audio.addEventListener("canplaythrough", () => {
-        audio.play().catch(e => {
-            console.log(e)
-        });
-    // });
+    audio.play().catch(e => {
+        button.click();
+    });
 }
-
+// button.click();
 window.onload = () => playSong();
 
 
